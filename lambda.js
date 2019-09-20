@@ -14,7 +14,7 @@ var request = require('request'),
     xml     = require('xml2js').parseString;
 
 exports.rss = function(event, context, callback) {
-    request('http://status.aws.amazon.com/rss/ec2-us-east-1.rss', function (error, response, body) {
+    request('http://status.aws.amazon.com/rss/ap-south-1.rss', function (error, response, body) {
         if(!error && response.statusCode == 200) {
             xml(body, { trim : true }, function (error, result) {
                 if(error) {
@@ -40,7 +40,7 @@ exports.rss = function(event, context, callback) {
                 return;
             });
         } else {
-            console.log("Error receiving data.");
+            console.log("Error receiving data kihsore.");
 
             // This will be used for when we hook up API Gateway.
             // It does no harm just being here for the Lambda only tutorial.
